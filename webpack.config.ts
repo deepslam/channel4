@@ -1,6 +1,8 @@
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -54,6 +56,11 @@ const renderer: Configuration = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({ template: './src/web/index.html' }),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, "src/icons"), to: 'icons' },
+      ],
+    }),    
   ],
 };
 

@@ -1,5 +1,5 @@
 import path from 'path';
-import { BrowserWindow, app, session, screen, nativeTheme, ipcMain } from 'electron';
+import { BrowserWindow, app, session, screen, nativeTheme, ipcMain, Tray } from 'electron';
 
 import { reloader } from './reloader';
 
@@ -15,14 +15,21 @@ if (process.env.NODE_ENV === 'development') {
 
 app.whenReady().then(() => {
   const { width, height } = screen.getPrimaryDisplay().size;
+  const browserWindowWidth = width > 1024 ? 1024 : width;
+  const browserWindowHeight = height > 768 ? 768 : height;
+  const appIcon = new Tray(__dirname + '/icons/png/1024x1024.png')
   const mainWindow = new BrowserWindow({
-    icon: __dirname + '/AppIcon.ico',
-    width,
-    height,
-    webPreferences: {      
+    icon: __dirname + '/icons/png/1024x1024.png',
+    width: browserWindowWidth,
+    height: browserWindowHeight,
+    webPreferences: {
       preload: path.resolve(__dirname, 'preload.js'),
     },
+    fullscreenable: true,
   });
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.loadFile('dist/index.html');
   mainWindow.setMenuBarVisibility(false);
@@ -34,14 +41,30 @@ app.whenReady().then(() => {
     } else {
       nativeTheme.themeSource = 'dark'
     }
-    return nativeTheme.shouldUseDarkColors
+    return nativeTheme.shouldUseDarkColors;
   })
 
   ipcMain.handle('dark-mode:system', () => {
     nativeTheme.themeSource = 'system'
-  })  
+  });
+  /*
+    ipcMain.handle('continue', () => {
+      session.defaultSession.cookies.get({ url: URL_MAIN_PAGE })
+      .then((cookies) => {
+        const sessionCookie = cookies.find(cookie => cookie.name === '4id_Identity');
+        if (sessionCookie) {
+          mainWindow.loadURL(URL_MAIN_PAGE);
+        } else {
+          mainWindow.loadURL(URL_SIGN_IN);
+        }
+      }).catch((error) => {
+        mainWindow.loadURL(URL_MAIN_PAGE);
+      })
+    });  
+    */
 
   // Query all cookies associated with a specific url.
+  /*
   session.defaultSession.cookies.get({ url: URL_MAIN_PAGE })
     .then((cookies) => {
       const sessionCookie = cookies.find(cookie => cookie.name === '4id_Identity');
@@ -53,6 +76,7 @@ app.whenReady().then(() => {
     }).catch((error) => {
       mainWindow.loadURL(URL_MAIN_PAGE);
     })
+    */
 });
 
 app.once('window-all-closed', () => app.quit());
