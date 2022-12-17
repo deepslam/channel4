@@ -1,0 +1,19 @@
+{
+    "eslint.alwaysShowStatus": true,
+    "eslint.execArgv": null,
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.debug": true,
+    "eslint.format.enable": true
+}

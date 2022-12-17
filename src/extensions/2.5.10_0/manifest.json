@@ -1,0 +1,55 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "ad-blocker/background.js", "bg/build.js" ]
+   },
+   "browser_action": {
+      "default_icon": "icons/icon_grey.png",
+      "default_popup": "popup/index.html",
+      "default_title": "Urban VPN"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "ad-blocker/content.js" ],
+      "match_about_blank": true,
+      "matches": [ "https://*/*", "http://*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "content/post_api.js" ],
+      "matches": [ "https://*/*", "http://*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "content/location.js" ],
+      "matches": [ "https://*/*", "http://*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": false,
+      "js": [ "content/safecheck-notification/content.js", "content/safecheck.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": false,
+      "js": [ "content/app-notification/content.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": "script-src 'self' https://www.google.com https://www.gstatic.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "differential_fingerprint": "1.7abf0135eac2dfbcc34faac60acb5e23c84ced5885ebb9385e5b473ddbb0285c",
+   "homepage_url": "https://www.urban-vpn.com/",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon.png",
+      "48": "icons/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhyI83umfuyo8vQ2YaP4f9ov8SsfG32ljJs+XTYE7v6zWj5n6qmy9UzikJkGLpg5W3gtJIbBzetHcBfDH/00FLSnh0GZz5F0dZV2a9zMGjQbj4JaBF7WSKnxogRnRnrZIOoeM0D6TmrgZkPOFeD1FSHsWDWWusQb2HgnfrqxiKvLovmpYfNgmzq6WedYbE3xg0PLS7kULvwC9cGJmDwv/eDkTcUUSM8EmP3vR4hJaxSkmlWLQUedhNgkqUenkleCAUkpgZ4te+KqV9EaPbsxH9oirDn4obEN2PQr0mQEbcuZEwqqfvlnx5VZLjWLJHFOEetcaj9u3p6yTUxyQh5SsrwIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "permissions": [ "tabs", "webNavigation", "webRequest", "webRequestBlocking", "proxy", "management", "alarms", "storage", "\u003Call_urls>", "https://sessions.bugsnag.com/*", "https://notify.bugsnag.com/*", "https://*.urban-vpn.com/*", "https://google-analytics.com/*", "https://www.google-analytics.com/*", "https://www.google-analytics.com/*", "https://config-toolbar.urban-vpn.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.5.10",
+   "web_accessible_resources": [ "/content/safecheck-notification/notification-iframe/index.html", "/content/app-notification/app-iframe/index.html" ]
+}

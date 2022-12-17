@@ -4,9 +4,13 @@
     "module": "ESNext",
     "esModuleInterop": true,
     "moduleResolution": "Node",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "jsx": "react",
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true
   },
   "ts-node": {
     "compilerOptions": {

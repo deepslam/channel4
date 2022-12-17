@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "name": "All4 channel",
+      "type": "all4"
+    },
+    {
+      "name": "UKTV Play",
+      "type": "uktv"
+    },
+    {
+      "name": "BBC iPlayer",
+      "type": "bbc"
+    },
+  ]
+}

@@ -60,7 +60,7 @@ const renderer: Configuration = {
       patterns: [
         { from: path.resolve(__dirname, "src/icons"), to: 'icons' },
       ],
-    }),    
+    }),
   ],
 };
 

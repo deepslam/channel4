@@ -1,0 +1,166 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "import/no-unused-modules": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "import/named": "off",
+    "import/namespace": "off",
+    "import/default": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowTypedFunctionExpressions": true,
+        "allowDirectConstAssertionInArrowFunctions": true
+      }
+    ],
+    "@typescript-eslint/interface-name-prefix": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".jsx"
+        ]
+      }
+    ],
+    "prettier/prettier": "error",
+    "consistent-return": "off",
+    "react/no-array-index-key": "warn",
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "import/prefer-default-export": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-undef": "off",
+    "no-plusplus": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "error",
+    "jsx-a11y/anchor-has-content": "off",
+    "react/no-danger": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/jsx-fragments": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline": "off",
+    "react/jsx-no-target-blank": [
+      2,
+      {
+        "allowReferrer": true
+      }
+    ],
+    "react/prop-types": "off",
+    "react/sort-comp": "off",
+    "react/function-component-definition": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "controlComponents": [
+          "input",
+          "Input",
+          "InputWithSuggestions"
+        ],
+        "depth": 5
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ],
+    "radix": [
+      "error",
+      "as-needed"
+    ],
+    "react/destructuring-assignment": "off",
+    // @todo Появилось при обновлении, что-то надо выпилить
+    "css-modules/no-undef-class": [
+      "error"
+    ],
+    "default-param-last": "off",
+    "react/require-default-props": "off",
+    "react/no-unstable-nested-components": "off",
+    "class-methods-use-this": "off",
+    "react/display-name": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "no-unsafe-optional-chaining": "off",
+    "react/button-has-type": "off",
+    "react/no-unused-class-component-methods": "off",
+    "eact/no-unused-prop-types": "off",
+    "no-var": "off",
+    "import/no-mutable-exports": "off",
+    "vars-on-top": "off",
+    "no-promise-executor-return": "off",
+    "react/no-unused-prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
